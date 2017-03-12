@@ -37,7 +37,7 @@ static void initClock()
 	CSCTL2 = SELA__VLOCLK |  SELS__DCOCLK | SELM__DCOCLK;
 	CSCTL3 &= ~(DIVA0 | DIVA1 | DIVA2 | DIVS0 | DIVS1 | DIVS2 | DIVM0| DIVM1 | DIVM2  ); // MCLK and SMCLK to be 8Mhz
 	//CSCTL3 |= DIVA1|DIVA0;  // ACLK = CLK/8 ==  1Mhz
-	// CSCTL4 = HFXTDRIVE0|HFXTDRIVE1 | HFFREQ1 |LFXTOFF  ;  //drive HFXT to be max power ( kein crytal bei stromsucher V1.0 deshab nicht benötigt)
+	// CSCTL4 = HFXTDRIVE0|HFXTDRIVE1 | HFFREQ1 |LFXTOFF  ;  //drive HFXT to be max power ( kein crytal bei stromsucher V1.0 deshab nicht benÃ¶tigt)
 	// _delay_cycles(5000);
 	// CSCTL0 =0x0000;
 	SFRIFG1 &=~( OFIFG);
@@ -56,7 +56,7 @@ void initSamplingTIMERB1()
 
 
 
-#pragma vector = TIMER1_B1_VECTOR		//timer a0 over flor make it trig ever 333ms update display here
+#pragma vector = TIMER1_B1_VECTOR		//timer B1 over flor make it trig ever 60 second , take sample and tramit over rf
 __interrupt void samplingTIMERB1_ISR(void)
 {
 	if(TB1CTL&TBIFG)
